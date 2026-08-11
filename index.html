@@ -1475,36 +1475,107 @@ footer{
   <div class="container">
     <div class="corporate reveal">
       <div class="corporate-text">
-        <span class="eyebrow">Для бизнеса</span>
+        <span class="eyebrow"></span>
         <h2 style="margin-top:18px;">GOFIT для команд, которые двигаются вперёд</h2>
         <p>Корпоративные программы для компаний, которые заботятся о здоровье сотрудников: групповые абонементы и персональный подход к каждой команде.</p>
+        <span>Корпоративные тарифы</span><span>от 5 человек</span>
         <a href="#contact" class="btn btn-primary">Обсудить программу</a>
       </div>
       <div class="corporate-list">
-        <div class="row"><span>Корпоративные тарифы</span><span>от 5 человек</span></div>
+        <div class="row"><img src="teamwotk.jpg" style="border-radius:15px ;" alt=""></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ TESTIMONIALS ============ -->
+
+<style>
+  .instagram-videos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+  }
+
+  .instagram-video {
+    width: 100%;
+  }
+
+  .instagram-video blockquote {
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  @media (max-width: 900px) {
+    .instagram-videos {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .instagram-videos {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+
 <section id="testimonials">
   <div class="container">
+
     <div class="section-head reveal">
       <span class="eyebrow">Отзывы</span>
-      <h2>Результаты, которые <span class="accent">говорят сами</span></h2>
+
+      <h2>
+        Результаты, которые
+        <span class="accent">говорят сами</span>
+      </h2>
     </div>
-    <div class="testi-video-wrap reveal">
-      <video class="testi-video" controls playsinline poster="https://images.unsplash.com/photo-1758957646695-ec8bce3df462?q=80&w=1600&auto=format&fit=crop">
-        <!-- TODO: заменить src на ссылку на видео с отзывами клиентов -->
-        Ваш браузер не поддерживает видео.
-      </video>
-      <div class="testi-video-play" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+
+
+    <div class="instagram-videos">
+
+      <div class="instagram-video">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/reel/DXtPrjCCLZS/"
+          data-instgrm-version="14"
+          style="background:#FFF; border:0; margin:0; padding:0;">
+        </blockquote>
       </div>
+
+
+      <div class="instagram-video">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/reel/DYXev8zomRa/"
+          data-instgrm-version="14"
+          style="background:#FFF; border:0; margin:0; padding:0;">
+        </blockquote>
+      </div>
+
+
+      <div class="instagram-video">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink="https://www.instagram.com/reel/DaBQFwAqpJ_/"
+          data-instgrm-version="14"
+          style="background:#FFF; border:0; margin:0; padding:0;">
+        </blockquote>
+      </div>
+
     </div>
+
   </div>
 </section>
+
+
+<script async src="https://www.instagram.com/embed.js"></script>
+
+
+
 
 <!-- ============ FINAL CTA ============ -->
 <section class="final-cta" id="join">
