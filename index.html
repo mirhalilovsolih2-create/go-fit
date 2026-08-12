@@ -406,28 +406,27 @@ section{padding:110px 0;}
   position:relative;
   min-height:100vh;
   display:flex;
-  align-items:flex-end;
+  align-items:center;
   padding-top:120px;
-  padding-bottom:0;
+  padding-bottom:60px;
   overflow:hidden;
+  background:var(--black);
 }
 .hero-bg{
   position:absolute; inset:0;
   z-index:0;
-}
-.hero-bg img{
-  width:100%; height:100%;
-  object-fit:cover;
-  object-position:center 35%;
-  transform:scale(1.06);
-  filter:grayscale(0.05) contrast(1.03) brightness(0.92);
+  background:var(--black);
 }
 .hero-bg::after{
   content:"";
-  position:absolute; inset:0;
-  background:
-    linear-gradient(180deg, rgba(11,11,11,0.32) 0%, rgba(11,11,11,0.18) 35%, rgba(11,11,11,0.4) 68%, var(--black) 100%),
-    linear-gradient(90deg, rgba(11,11,11,0.55) 0%, rgba(11,11,11,0.08) 45%, rgba(11,11,11,0.05) 100%);
+  position:absolute;
+  top:50%; right:8%;
+  width:min(56vw, 900px);
+  height:min(56vw, 900px);
+  transform:translateY(-50%);
+  background:radial-gradient(circle, rgba(24,197,201,0.30) 0%, rgba(24,197,201,0.14) 32%, rgba(24,197,201,0.0) 68%);
+  filter:blur(2px);
+  pointer-events:none;
 }
 .hero-grid-lines{
   position:absolute; inset:0;
@@ -436,14 +435,21 @@ section{padding:110px 0;}
     linear-gradient(rgba(24,197,201,0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(24,197,201,0.05) 1px, transparent 1px);
   background-size:64px 64px;
-  mask-image:linear-gradient(180deg, black, transparent 75%);
+  mask-image:radial-gradient(ellipse at 20% 40%, black, transparent 72%);
   pointer-events:none;
 }
-.hero-content{
+.hero-flex{
   position:relative;
   z-index:2;
   width:100%;
-  padding-bottom:150px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.hero-content{
+  max-width:600px;
+  flex-shrink:0;
 }
 .hero-tags{
   display:flex;
@@ -470,28 +476,58 @@ section{padding:110px 0;}
 .hero h1{
   font-family:var(--f-display);
   font-weight:800;
-  font-size:clamp(42px, 8vw, 96px);
+  font-size:clamp(40px, 6.4vw, 74px);
   line-height:0.98;
   letter-spacing:-0.015em;
-  color:var(--white);
-  max-width:900px;
 }
-.hero h1 span{
+.hero h1 .line-white{
+  display:block;
+  color:var(--white);
+}
+.hero h1 .line-accent{
+  display:block;
   color:var(--turquoise);
-  display:inline-block;
+}
+.hero-tagline{
+  margin-top:18px;
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:clamp(15px, 1.6vw, 19px);
+  letter-spacing:0.02em;
+  color:var(--white);
+  text-transform:uppercase;
 }
 .hero-sub{
-  margin-top:26px;
+  margin-top:22px;
   max-width:480px;
   color:#D6D9D9;
-  font-size:17px;
+  font-size:16px;
   line-height:1.6;
 }
 .hero-actions{
-  margin-top:40px;
+  margin-top:36px;
   display:flex;
   gap:16px;
   flex-wrap:wrap;
+}
+
+.hero-media{
+  position:relative;
+  flex:1 1 auto;
+  min-width:0;
+  height:min(74vh, 720px);
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+}
+.hero-athlete{
+  position:relative;
+  z-index:2;
+  max-height:100%;
+  max-width:100%;
+  width:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 30px 40px rgba(0,0,0,0.55));
 }
 
 .hero-float-card{
@@ -527,7 +563,7 @@ section{padding:110px 0;}
 .scroll-cue{
   position:absolute;
   left:var(--pad);
-  bottom:56px;
+  bottom:28px;
   z-index:3;
   display:flex;
   align-items:center;
@@ -555,11 +591,20 @@ section{padding:110px 0;}
   0%{top:-100%;} 60%{top:100%;} 100%{top:100%;}
 }
 
+@media (max-width:980px){
+  .hero-flex{flex-direction:column; align-items:center; text-align:center;}
+  .hero-content{max-width:640px;}
+  .hero-sub{margin-left:auto; margin-right:auto;}
+  .hero-actions{justify-content:center;}
+  .hero-media{height:46vh; margin-top:8px;}
+  .hero-bg::after{right:50%; transform:translate(50%,-50%);}
+}
+
 @media (max-width:720px){
-  .hero{align-items:center; padding-top:140px;}
-  .hero-content{padding-bottom:60px;}
+  .hero{align-items:center; padding-top:140px; padding-bottom:40px;}
   .hero-float-card{position:static; margin-top:44px; width:100%; justify-content:space-between;}
   .scroll-cue{display:none;}
+  .hero-media{height:38vh;}
 }
 
 /* ---------- MARQUEE ---------- */
@@ -693,13 +738,13 @@ section{padding:110px 0;}
   position:absolute; inset:0;
   width:100%; height:100%;
   object-fit:cover;
-  filter:grayscale(0.35) contrast(1.1) brightness(0.6);
+  filter:grayscale(0) contrast(1.03) brightness(1);
   transition:transform .7s var(--ease), filter .5s ease;
 }
-.zone-card:hover img{transform:scale(1.08); filter:grayscale(0.1) contrast(1.1) brightness(0.55);}
+.zone-card:hover img{transform:scale(1.08); filter:grayscale(0) contrast(1.05) brightness(1.02);}
 .zone-card .overlay{
   position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(11,11,11,0.15) 0%, rgba(11,11,11,0.35) 45%, rgba(11,11,11,0.94) 100%);
+  background:linear-gradient(180deg, rgba(11,11,11,0) 0%, rgba(11,11,11,0.02) 45%, rgba(11,11,11,0.82) 100%);
 }
 .zone-card .code{
   position:absolute; top:20px; left:20px;
@@ -708,6 +753,7 @@ section{padding:110px 0;}
   color:var(--turquoise);
   letter-spacing:0.08em;
   display:flex; align-items:center; gap:6px;
+  text-shadow:0 1px 6px rgba(0,0,0,0.45);
 }
 .zone-card .code::before{content:"⌖"; font-size:13px;}
 .zone-card .body{
@@ -1411,19 +1457,25 @@ footer{
 
 <!-- ============ HERO ============ -->
 <header class="hero" id="home">
-  <div class="hero-bg">
-    <img src="/imghome.webp" alt="Светлый просторный зал GOFIT с современным оборудованием">
-  </div>
+  <div class="hero-bg"></div>
   <div class="hero-grid-lines"></div>
-  <div class="container hero-content">
-    <h1 data-i18n-html="hero.title">Начни путь к результату<br>уже <span>сегодня</span></h1>
-    <p class="hero-sub" data-i18n="hero.sub">Современный фитнес-клуб, где комфортно тренироваться каждый день. Оборудование премиум-класса, внимательные тренеры и атмосфера, в которую хочется возвращаться.</p>
-    <div class="hero-actions">
-      <a href="#pricing" class="btn btn-primary">
-        <span data-i18n="hero.ctaPrimary">Начать бесплатно</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a href="#zones" class="btn btn-ghost-light" data-i18n="hero.ctaSecondary">Смотреть залы</a>
+  <div class="container hero-flex">
+    <div class="hero-content">
+      <h1 data-i18n-html="hero.title">
+        <span class="line-white">ТВОЯ</span><span class="line-accent">ФИТНЕС-ТЕРРИТОРИЯ</span>
+      </h1>
+      <p class="hero-tagline" data-i18n="hero.tagline">Для силы. Формы. Результата.</p>
+      <p class="hero-sub" data-i18n="hero.sub">Современный фитнес-клуб в Северном Олмазоре. Тренажёрный зал, групповые тренировки, fight zone и профессиональные тренеры — всё в одном месте.</p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn btn-primary">
+          <span data-i18n="hero.ctaPrimary">Записаться на пробный визит</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#zones" class="btn btn-ghost-light" data-i18n="hero.ctaSecondary">Посмотреть клуб</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img class="hero-athlete" src="/jumper.jpg" alt="Спортсмен GOFIT в прыжке">
     </div>
   </div>
   <div class="scroll-cue"><span class="line"></span> <span data-i18n="hero.scroll">Скролл</span></div>
@@ -2047,9 +2099,10 @@ leadForm.addEventListener('submit', async (e) => {
 window.I18N_DATA = {
   ru: {
     "nav.home":"Главная","nav.about":"О нас","nav.zones":"Территории","nav.trainers":"Тренеры","nav.pricing":"Резидентство ","nav.contact":"Контакты","nav.cta":"Записаться",
-    "hero.title":"Начни путь к результату<br>уже <span>сегодня</span>",
-    "hero.sub":"Современный фитнес-клуб, где комфортно тренироваться каждый день. Оборудование премиум-класса, внимательные тренеры и атмосфера, в которую хочется возвращаться.",
-    "hero.ctaPrimary":"Начать бесплатно","hero.ctaSecondary":"Смотреть залы","hero.scroll":"Скролл",
+    "hero.title":"<span class=\"line-white\">Твоя</span><span class=\"line-accent\">Фитнес-территория</span>",
+    "hero.tagline":"Для силы. Формы. Результата.",
+    "hero.sub":"Современный фитнес-клуб в Северном Олмазоре. Тренажёрный зал, групповые тренировки, fight zone и профессиональные тренеры — всё в одном месте.",
+    "hero.ctaPrimary":"Записаться на пробный визит","hero.ctaSecondary":"Посмотреть клуб","hero.scroll":"Скролл",
     "marquee.1":"Сила","marquee.2":"Энергия","marquee.3":"Дисциплина","marquee.4":"Результат",
     "about.eyebrow":"О клубе",
     "about.title":"Пространство, где цели становятся <span class=\"accent\">результатом</span>",
@@ -2099,9 +2152,10 @@ window.I18N_DATA = {
   },
   uz: {
     "nav.home":"Bosh sahifa","nav.about":"Biz haqimizda","nav.zones":"Hududlar","nav.trainers":"Murabbiylar","nav.pricing":"Аbonement","nav.contact":"Aloqa","nav.cta":"Yozilish",
-    "hero.title":"Natijaga yo‘l boshla<br>allaqachon <span>bugun</span>",
-    "hero.sub":"Har kuni mashq qilish qulay bo‘lgan zamonaviy fitnes-klub. Premium darajadagi jihozlar, e'tiborli murabbiylar va qaytib kelgingiz keladigan muhit.",
-    "hero.ctaPrimary":"Bepul boshlash","hero.ctaSecondary":"Zallarni ko‘rish","hero.scroll":"Pastga suring",
+    "hero.title":"<span class=\"line-white\">Sening</span><span class=\"line-accent\">Fitnes hududing</span>",
+    "hero.tagline":"Kuch. Shakl. Natija uchun.",
+    "hero.sub":"Shimoliy Olmazordagi zamonaviy fitnes-klub. Trenajyor zali, guruh mashg‘ulotlari, fight zone va professional murabbiylar — bir joyda.",
+    "hero.ctaPrimary":"Sinov tashrifiga yozilish","hero.ctaSecondary":"Klubni ko‘rish","hero.scroll":"Pastga suring",
     "marquee.1":"Kuch","marquee.2":"Energiya","marquee.3":"Intizom","marquee.4":"Natija",
     "about.eyebrow":"Klub haqida",
     "about.title":"Maqsadlar <span class=\"accent\">natijaga</span> aylanadigan makon",
@@ -2151,9 +2205,10 @@ window.I18N_DATA = {
   },
   en: {
     "nav.home":"Home","nav.about":"About","nav.zones":"Areas","nav.trainers":"Trainers","nav.pricing":"Membership","nav.contact":"Contact","nav.cta":"Join now",
-    "hero.title":"Start your path to results<br>as early as <span>today</span>",
-    "hero.sub":"A modern fitness club made for training comfortably every day. Premium-class equipment, attentive trainers, and an atmosphere you'll want to come back to.",
-    "hero.ctaPrimary":"Start for free","hero.ctaSecondary":"View the gym","hero.scroll":"Scroll",
+    "hero.title":"<span class=\"line-white\">Your</span><span class=\"line-accent\">Fitness Territory</span>",
+    "hero.tagline":"For strength. Shape. Results.",
+    "hero.sub":"A modern fitness club in Northern Olmazor. A gym floor, group training, a fight zone, and professional trainers — all in one place.",
+    "hero.ctaPrimary":"Book a trial visit","hero.ctaSecondary":"View the club","hero.scroll":"Scroll",
     "marquee.1":"Strength","marquee.2":"Energy","marquee.3":"Discipline","marquee.4":"Results",
     "about.eyebrow":"About the club",
     "about.title":"A space where goals become <span class=\"accent\">results</span>",
