@@ -800,6 +800,33 @@ section{padding:110px 0;}
   .zone-card p{max-height:80px; opacity:1;}
 }
 
+/* ---------- BODY ANALYSIS ---------- */
+.analysis-grid{
+  display:grid;
+  grid-template-columns:1fr 0.9fr;
+  gap:70px;
+  align-items:center;
+}
+.analysis-text .section-head{margin-bottom:26px;}
+.analysis-lead{
+  color:#C7CBCB;
+  font-size:16.5px;
+  line-height:1.75;
+}
+.analysis-media{position:relative;}
+.analysis-media img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  filter:grayscale(0.25) contrast(1.05) brightness(0.92);
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+}
+@media (max-width:920px){
+  .analysis-grid{grid-template-columns:1fr; gap:44px;}
+  .analysis-media{order:-1;}
+}
+
 /* ---------- STATS ---------- */
 .stats-section{
   background:var(--dark-gray);
@@ -1422,7 +1449,8 @@ footer{
     <div class="nav-links" id="navLinks">
       <a href="#home" class="nav-link" data-section="home" data-i18n="nav.home">Главная</a>
       <a href="#about" class="nav-link" data-section="about" data-i18n="nav.about">О нас</a>
-      <a href="#zones" class="nav-link" data-section="zones" data-i18n="nav.zones">Территории</a>
+      <a href="#zones" class="nav-link" data-section="zones" data-i18n="nav.zones">Услуги</a>
+      <a href="#body-analysis" class="nav-link" data-section="body-analysis" data-i18n="nav.analysis">Анализ состава тела</a>
       <a href="#trainers" class="nav-link" data-section="trainers" data-i18n="nav.trainers">Тренеры</a>
       <a href="#pricing" class="nav-link" data-section="pricing" data-i18n="nav.pricing">Резидентство </a>
       <a href="#contact" class="nav-link" data-section="contact" data-i18n="nav.contact">Контакты</a>
@@ -1444,7 +1472,8 @@ footer{
 <div class="mobile-menu" id="mobileMenu">
   <a href="#home" data-i18n="nav.home">Главная</a>
   <a href="#about" data-i18n="nav.about">О нас</a>
-  <a href="#zones" data-i18n="nav.zones">Территории</a>
+  <a href="#zones" data-i18n="nav.zones">Услуги</a>
+  <a href="#body-analysis" data-i18n="nav.analysis">Анализ состава тела</a>
   <a href="#trainers" data-i18n="nav.trainers">Тренеры</a>
   <a href="#pricing" data-i18n="nav.pricing">Резидентство </a>
   <a href="#contact" data-i18n="nav.contact">Контакты</a>
@@ -1538,7 +1567,7 @@ footer{
         </div>
       </div>
       <div class="zone-card">
-        <img src="groupwork.jpg" alt="Групповые занятия GOFIT">
+        <img src="grouptren.png" alt="Групповые занятия GOFIT">
         <div class="overlay"></div>
         <span class="code">Z-03 / GROUP</span>
         <div class="body">
@@ -1576,6 +1605,24 @@ footer{
           <p data-i18n="zones.massage.desc">Профессиональный массаж для восстановления и заботы о теле.</p>
           <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BODY ANALYSIS ============ -->
+<section id="body-analysis">
+  <div class="container">
+    <div class="analysis-grid">
+      <div class="analysis-text">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="analysis.eyebrow">GOFIT</span>
+          <h2 data-i18n-html="analysis.title">Анализ <span class="accent">состава тела</span></h2>
+        </div>
+        <p class="analysis-lead reveal" data-i18n="analysis.desc">Проходите биоимпедансный анализ состава тела и отслеживайте динамику: мышечную массу, уровень жира, воду в организме и другие ключевые показатели. Это помогает тренеру точнее настраивать программу под ваши цели.</p>
+      </div>
+      <div class="analysis-media reveal">
+        <img src="analys.webp" alt="Анализ состава тела GOFIT">
       </div>
     </div>
   </div>
@@ -1814,7 +1861,8 @@ footer{
         <h4 data-i18n="footer.club">Клуб</h4>
         <ul>
           <li><a href="#about" data-i18n="nav.about">О нас</a></li>
-          <li><a href="#zones" data-i18n="nav.zones">Территории</a></li>
+          <li><a href="#zones" data-i18n="nav.zones">Услуги</a></li>
+          <li><a href="#body-analysis" data-i18n="nav.analysis">Анализ состава тела</a></li>
           <li><a href="#trainers" data-i18n="nav.trainers">Тренеры</a></li>
           <li><a href="#pricing" data-i18n="nav.pricing">Резиденство</a></li>
         </ul>
@@ -1953,7 +2001,7 @@ const countObserver = new IntersectionObserver((entries) => {
 counters.forEach(el => countObserver.observe(el));
 
 // ===== Active nav link on scroll =====
-const sections = ['home','about','zones','trainers','pricing','contact']
+const sections = ['home','about','zones','body-analysis','trainers','pricing','contact']
   .map(id => document.getElementById(id)).filter(Boolean);
 const navLinkMap = {};
 document.querySelectorAll('.nav-link').forEach(link => {
@@ -2098,7 +2146,7 @@ leadForm.addEventListener('submit', async (e) => {
 <script>
 window.I18N_DATA = {
   ru: {
-    "nav.home":"Главная","nav.about":"О нас","nav.zones":"Территории","nav.trainers":"Тренеры","nav.pricing":"Резидентство ","nav.contact":"Контакты","nav.cta":"Записаться",
+    "nav.home":"Главная","nav.about":"О нас","nav.zones":"Услуги","nav.analysis":"Анализ состава тела","nav.trainers":"Тренеры","nav.pricing":"Резидентство ","nav.contact":"Контакты","nav.cta":"Записаться",
     "hero.title":"<span class=\"line-white\">Твоя</span><span class=\"line-accent\">Фитнес-территория</span>",
     "hero.tagline":"Для силы. Формы. Результата.",
     "hero.sub":"Современный фитнес-клуб в Северном Олмазоре. Тренажёрный зал, групповые тренировки, fight zone и профессиональные тренеры — всё в одном месте.",
@@ -2116,6 +2164,7 @@ window.I18N_DATA = {
     "zones.sauna.title":"Сауна","zones.sauna.desc":"Восстановление и расслабление мышц после интенсивной тренировки.",
     "zones.lockers.title":"Большие раздевалки","zones.lockers.desc":"Просторные, чистые зоны с удобными шкафчиками для комфорта до и после тренировки.",
     "zones.massage.title":"Массаж","zones.massage.desc":"Профессиональный массаж для восстановления и заботы о теле.",
+    "analysis.eyebrow":"GOFIT","analysis.title":"Анализ <span class=\"accent\">состава тела</span>","analysis.desc":"Проходите биоимпедансный анализ состава тела и отслеживайте динамику: мышечную массу, уровень жира, воду в организме и другие ключевые показатели. Это помогает тренеру точнее настраивать программу под ваши цели.",
     "trainers.eyebrow":"Команда",
     "trainers.title":"Эксперты, которым <span class=\"accent\">доверяют</span>",
     "trainers.sub":"Тренеры GOFIT работают с новичками и профессиональными атлетами — с научным подходом и вниманием к каждой детали.",
@@ -2151,7 +2200,7 @@ window.I18N_DATA = {
     "fab.call":"Позвонить","fab.telegram":"Написать в Telegram"
   },
   uz: {
-    "nav.home":"Bosh sahifa","nav.about":"Biz haqimizda","nav.zones":"Hududlar","nav.trainers":"Murabbiylar","nav.pricing":"Аbonement","nav.contact":"Aloqa","nav.cta":"Yozilish",
+    "nav.home":"Bosh sahifa","nav.about":"Biz haqimizda","nav.zones":"Xizmatlar","nav.analysis":"Tana tarkibi tahlili","nav.trainers":"Murabbiylar","nav.pricing":"Аbonement","nav.contact":"Aloqa","nav.cta":"Yozilish",
     "hero.title":"<span class=\"line-white\">Sening</span><span class=\"line-accent\">Fitnes hududing</span>",
     "hero.tagline":"Kuch. Shakl. Natija uchun.",
     "hero.sub":"Shimoliy Olmazordagi zamonaviy fitnes-klub. Trenajyor zali, guruh mashg‘ulotlari, fight zone va professional murabbiylar — bir joyda.",
@@ -2169,6 +2218,7 @@ window.I18N_DATA = {
     "zones.sauna.title":"Sauna","zones.sauna.desc":"Intensiv mashqdan keyin mushaklarni tiklash va boʻshashtirish.",
     "zones.lockers.title":"Katta kiyinish xonalari","zones.lockers.desc":"Mashqdan oldin va keyin qulaylik uchun qulay shkafchalari boʻlgan keng, toza zonalar.",
     "zones.massage.title":"Massaj","zones.massage.desc":"Tiklanish va tanaga g‘amxoʻrlik uchun professional massaj.",
+    "analysis.eyebrow":"GOFIT","analysis.title":"Tana <span class=\"accent\">tarkibini tahlil qilish</span>","analysis.desc":"Bioimpedans tahlilidan oʻting va dinamikani kuzating: mushak massasi, yog‘ darajasi, tanadagi suv va boshqa asosiy koʻrsatkichlar. Bu murabbiyga dasturni maqsadingizga aniqroq moslashtirishga yordam beradi.",
     "trainers.eyebrow":"Jamoa",
     "trainers.title":"<span class=\"accent\">Ishonch bildirilgan</span> mutaxassislar",
     "trainers.sub":"GOFIT murabbiylari yangi boshlovchilar va professional atletlar bilan ilmiy yondashuv va har bir detalga eʼtibor bilan ishlaydi.",
@@ -2204,7 +2254,7 @@ window.I18N_DATA = {
     "fab.call":"Qo‘ng‘iroq qilish","fab.telegram":"Telegramga yozish"
   },
   en: {
-    "nav.home":"Home","nav.about":"About","nav.zones":"Areas","nav.trainers":"Trainers","nav.pricing":"Membership","nav.contact":"Contact","nav.cta":"Join now",
+    "nav.home":"Home","nav.about":"About","nav.zones":"Services","nav.analysis":"Body Analysis","nav.trainers":"Trainers","nav.pricing":"Membership","nav.contact":"Contact","nav.cta":"Join now",
     "hero.title":"<span class=\"line-white\">Your</span><span class=\"line-accent\">Fitness Territory</span>",
     "hero.tagline":"For strength. Shape. Results.",
     "hero.sub":"A modern fitness club in Northern Olmazor. A gym floor, group training, a fight zone, and professional trainers — all in one place.",
@@ -2222,6 +2272,7 @@ window.I18N_DATA = {
     "zones.sauna.title":"Sauna","zones.sauna.desc":"Muscle recovery and relaxation after an intense workout.",
     "zones.lockers.title":"Spacious locker rooms","zones.lockers.desc":"Clean, roomy spaces with convenient lockers for comfort before and after training.",
     "zones.massage.title":"Massage","zones.massage.desc":"Professional massage for recovery and body care.",
+    "analysis.eyebrow":"GOFIT","analysis.title":"Body <span class=\"accent\">composition analysis</span>","analysis.desc":"Get a bioimpedance body composition scan and track your progress: muscle mass, fat level, water content, and other key metrics. It helps your trainer fine-tune your program to your goals.",
     "trainers.eyebrow":"Team",
     "trainers.title":"Experts you can <span class=\"accent\">trust</span>",
     "trainers.sub":"GOFIT trainers work with beginners and professional athletes alike — with a scientific approach and attention to every detail.",
