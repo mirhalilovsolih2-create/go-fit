@@ -34,7 +34,7 @@
   "image": "/imghome.webp",
   "url": "https://gofit.uz/",
   "telephone": "+998904999929",
-  "priceRange": "450000-1350000 UZS",
+  "priceRange": "400000-7300000 UZS",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "ул. Шимолий Олмазор 15",
@@ -300,8 +300,8 @@ section{padding:110px 0;}
   gap:36px;
 }
 .nav-links a{
-  font-size:13px;
-  font-weight:600;
+  font-size:10px;
+  font-weight:500;
   letter-spacing:0.04em;
   text-transform:uppercase;
   color:var(--gray-text);
@@ -932,15 +932,15 @@ section{padding:110px 0;}
 /* ---------- PRICING ---------- */
 .pricing-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
   align-items:stretch;
 }
 .plan{
   background:var(--charcoal);
   border:1px solid var(--line);
   border-radius:var(--radius);
-  padding:38px 32px;
+  padding:32px 24px;
   display:flex;
   flex-direction:column;
   transition:transform .45s var(--ease), border-color .4s ease;
@@ -975,18 +975,43 @@ section{padding:110px 0;}
 .plan.featured .plan-name{color:var(--turquoise);}
 .plan-price{
   font-family:var(--f-display);
-  font-size:44px;
+  font-size:32px;
   font-weight:700;
   color:var(--white);
   margin-bottom:4px;
+  line-height:1.15;
 }
 .plan-price span{
+  display:block;
   font-family:var(--f-body);
-  font-size:14px;
+  font-size:13px;
   font-weight:500;
   color:var(--gray-text);
+  margin-top:4px;
 }
-.plan-desc{font-size:13.5px; color:var(--gray-text); margin-bottom:28px;}
+.plan-extra{
+  font-family:var(--f-body);
+  font-size:13px;
+  font-weight:500;
+  color:var(--turquoise);
+  margin-top:-2px;
+  margin-bottom:10px;
+}
+.plan-hours{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  font-size:12.5px;
+  color:var(--gray-text);
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:10px 12px;
+  margin-bottom:22px;
+  line-height:1.4;
+}
+.plan-hours svg{flex:none; width:14px; height:14px; margin-top:1px; color:var(--turquoise);}
+.plan-desc{font-size:13.5px; color:var(--gray-text); margin-bottom:20px;}
 .plan-features{
   display:flex;
   flex-direction:column;
@@ -1009,6 +1034,9 @@ section{padding:110px 0;}
 }
 .plan .btn{width:100%;}
 
+@media (max-width:1080px){
+  .pricing-grid{grid-template-columns:repeat(2,1fr);}
+}
 @media (max-width:920px){
   .pricing-grid{grid-template-columns:1fr; max-width:440px; margin:0 auto;}
 }
@@ -1567,7 +1595,7 @@ footer{
         </div>
       </div>
       <div class="zone-card">
-        <img src="grouptren.png" alt="Групповые занятия GOFIT">
+        <img src="grouptren2.jpg" alt="Групповые занятия GOFIT">
         <div class="overlay"></div>
         <span class="code">Z-03 / GROUP</span>
         <div class="body">
@@ -1675,47 +1703,81 @@ footer{
     <div class="section-head reveal" style="margin-left:auto; margin-right:auto; text-align:center; align-items:center;">
       <span class="eyebrow" style="justify-content:center;" data-i18n="pricing.eyebrow">Резидентство </span>
       <h2 data-i18n-html="pricing.title">Выбери свой <span class="accent">уровень</span></h2>
-      <p style="margin:0 auto;" data-i18n="pricing.sub">Гибкие тарифы для новичков, постоянных атлетов и тех, кому нужен максимум.</p>
+      <p style="margin:0 auto;">Гибкие тарифы для новичков, постоянных атлетов и тех, кому нужен максимум.</p>
     </div>
     <div class="pricing-grid reveal-stagger">
+
       <div class="plan">
-        <div class="plan-name">Start</div>
-        <div class="plan-price">450 000 <span data-i18n="pricing.perMonth">сум / мес</span></div>
-        <div class="plan-desc" data-i18n="pricing.start.desc">Для тех, кто делает первый шаг к результату.</div>
+        <div class="plan-name">Go Start</div>
+        <div class="plan-price">600 000 <span>сум / мес</span></div>
+        <div class="plan-extra">+ 400 000 сум подписка (единоразово)</div>
+        <div class="plan-hours">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 6v6l4 2M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z"/></svg>
+          <span>Будни 07:00–17:00, выходные 09:00–17:00</span>
+        </div>
+        <div class="plan-desc">Оптимальный вход в тренировки с помесячной оплатой.</div>
         <ul class="plan-features">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pricing.start.f1">Доступ в зал (06:00–23:00)</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pricing.start.f2">Групповые занятия</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pricing.start.f3">Премиальные раздевалки</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pricing.start.f4">Вводная консультация</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Доступ в зал в дневные часы</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Групповые занятия</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Раздевалки и душевые</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Вводная консультация</span></li>
         </ul>
-        <a href="#contact" class="btn btn-ghost"><span data-i18n="pricing.start.cta">Выбрать Start</span></a>
+        <a href="#contact" class="btn btn-ghost"><span>Выбрать Go Start</span></a>
       </div>
+
+      <div class="plan">
+        <div class="plan-name">Go Morning</div>
+        <div class="plan-price">4 500 000 <span>сум / 12 месяцев</span></div>
+        <div class="plan-hours">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 6v6l4 2M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z"/></svg>
+          <span>Будни 07:00–13:00, выходные 09:00–13:00</span>
+        </div>
+        <div class="plan-desc">Годовой абонемент для утренних тренировок.</div>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Доступ в зал в утренние часы</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Групповые занятия</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Премиальные раздевалки</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Вводная консультация</span></li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost"><span>Выбрать Go Morning</span></a>
+      </div>
+
+      <div class="plan">
+        <div class="plan-name">Go Ladies</div>
+        <div class="plan-price">4 420 000 <span>сум / 12 месяцев</span></div>
+        <div class="plan-hours">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 6v6l4 2M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z"/></svg>
+          <span>Полный доступ в часы работы клуба</span>
+        </div>
+        <div class="plan-desc">Годовой тариф для тренировок в комфортной женской атмосфере.</div>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Свободный доступ в зал</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Групповые занятия</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Премиальные раздевалки</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Персональная консультация тренера</span></li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost"><span>Выбрать Go Ladies</span></a>
+      </div>
+
       <div class="plan featured">
-        <span class="plan-badge" data-i18n="pricing.badge">Популярный выбор</span>
-        <div class="plan-name">Pro</div>
-        <div class="plan-price">790 000 <span data-i18n="pricing.perMonth">сум / мес</span></div>
-        <div class="plan-desc" data-i18n="pricing.pro.desc">Для тех, кто тренируется регулярно и хочет большего.</div>
+        <span class="plan-badge">Популярный выбор</span>
+        <div class="plan-name">Go VIP</div>
+        <div class="plan-price">7 300 000 <span>сум / 12 месяцев</span></div>
+        <div class="plan-hours">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 6v6l4 2M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z"/></svg>
+          <span>Доступ 24/7, без ограничений по времени</span>
+        </div>
+        <div class="plan-desc">Максимальный уровень сервиса на весь год.</div>
         <ul class="plan-features">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pricing.pro.f1">Доступ в зал 24/7</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pricing.pro.f2">2 персональные тренировки / мес</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pricing.pro.f3">Зона восстановления</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pricing.pro.f4">Все групповые программы</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pricing.pro.f5">Приоритетная запись</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Доступ в зал 24/7</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Персональные тренировки</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Приоритетная запись и сервис</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Все групповые программы</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span>Персональный менеджер</span></li>
         </ul>
-        <a href="#contact" class="btn btn-primary"><span data-i18n="pricing.pro.cta">Выбрать Pro</span></a>
+        <a href="#contact" class="btn btn-primary"><span>Выбрать Go VIP</span></a>
       </div>
-      <div class="plan">
-        <div class="plan-name">Elite</div>
-        <div class="plan-price">1 350 000 <span data-i18n="pricing.perMonth">сум / мес</span></div>
-        <div class="plan-desc" data-i18n="pricing.elite.desc">Максимальный уровень сервиса и внимания к результату.</div>
-        <ul class="plan-features">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pricing.elite.f1">Безлимитные персональные тренировки</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pricing.elite.f2">Консультация нутрициолога</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pricing.elite.f3">Доступ ко всем клубам сети</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pricing.elite.f4">Персональный менеджер</span></li>
-        </ul>
-        <a href="#contact" class="btn btn-ghost"><span data-i18n="pricing.elite.cta">Выбрать Elite</span></a>
-      </div>
+
     </div>
   </div>
 </section>
@@ -1927,9 +1989,10 @@ footer{
       <div class="form-field">
         <label for="leadService" data-i18n="modal.serviceLabel">Услуга</label>
         <select id="leadService" name="service">
-          <option value="Start" data-i18n="modal.serviceStart">Тариф Start</option>
-          <option value="Pro" data-i18n="modal.servicePro">Тариф Pro</option>
-          <option value="Elite" data-i18n="modal.serviceElite">Тариф Elite</option>
+          <option value="Go Start">Тариф Go Start</option>
+          <option value="Go Morning">Тариф Go Morning</option>
+          <option value="Go Ladies">Тариф Go Ladies</option>
+          <option value="Go VIP">Тариф Go VIP</option>
           <option value="Корпоративная программа" data-i18n="modal.serviceCorp">Корпоративная программа</option>
           <option value="Пробная тренировка" data-i18n="modal.serviceTrial">Пробная тренировка</option>
         </select>
