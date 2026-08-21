@@ -415,7 +415,10 @@ section{padding:110px 0;}
 .hero-bg{
   position:absolute; inset:0;
   z-index:0;
-  background:var(--black);
+  background:
+    linear-gradient(90deg, rgba(11,11,11,0.94) 0%, rgba(11,11,11,0.72) 34%, rgba(11,11,11,0.30) 62%, rgba(11,11,11,0.55) 100%),
+    linear-gradient(0deg, rgba(11,11,11,0.92) 0%, rgba(11,11,11,0.1) 32%, rgba(11,11,11,0.05) 60%, rgba(11,11,11,0.65) 100%),
+    var(--black) url('/imghome.webp') center 18% / cover no-repeat;
 }
 .hero-bg::after{
   content:"";
@@ -424,9 +427,10 @@ section{padding:110px 0;}
   width:min(56vw, 900px);
   height:min(56vw, 900px);
   transform:translateY(-50%);
-  background:radial-gradient(circle, rgba(24,197,201,0.30) 0%, rgba(24,197,201,0.14) 32%, rgba(24,197,201,0.0) 68%);
+  
   filter:blur(2px);
   pointer-events:none;
+  mix-blend-mode:screen;
 }
 .hero-grid-lines{
   position:absolute; inset:0;
@@ -444,7 +448,7 @@ section{padding:110px 0;}
   width:100%;
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:flex-start;
   gap:24px;
 }
 .hero-content{
@@ -1530,9 +1534,6 @@ footer{
         </a>
         <a href="#zones" class="btn btn-ghost-light" data-i18n="hero.ctaSecondary">Посмотреть клуб</a>
       </div>
-    </div>
-    <div class="hero-media">
-      <img class="hero-athlete" src="/jumper.png" style="width:1100px !important; height: 1100px !important; padding-top: 120px;  transform: scale(1.5); transform-origin: bottom center;" alt="Спортсмен GOFIT в прыжке">
     </div>
   </div>
   <div class="scroll-cue"><span class="line"></span> <span data-i18n="hero.scroll">Скролл</span></div>
